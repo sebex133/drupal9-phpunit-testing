@@ -8,6 +8,6 @@ before_script:
   - composer install
 
 script:
-  - echo "START of Travis CI building server app"
-  - phpunit -c web\phpunit.xml web\modules\custom
-  - echo "END of Travis CI building server app"
+  - echo "START of Travis CI testing custom modules"
+  - phpunit -c web/phpunit.xml web/modules/custom
+  - echo "END of Travis CI testing custom modules"
