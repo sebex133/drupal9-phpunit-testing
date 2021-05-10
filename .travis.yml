@@ -9,5 +9,6 @@ before_script:
 
 script:
   - echo "START of Travis CI testing custom modules"
-  - phpunit -c web/phpunit.xml web/modules/custom
+  - cd web/core
+  - ../../vendor/bin/phpunit -c ../phpunit.xml ../modules/custom
   - echo "END of Travis CI testing custom modules"
