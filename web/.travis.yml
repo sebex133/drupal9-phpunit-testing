@@ -1,0 +1,13 @@
+language: php
+php: 7.4
+branches:
+  - only:
+      - master
+
+before_script:
+  - composer install
+
+script:
+  - echo "START of Travis CI building server app"
+  - phpunit -c web\phpunit.xml web\modules\custom
+  - echo "END of Travis CI building server app"
