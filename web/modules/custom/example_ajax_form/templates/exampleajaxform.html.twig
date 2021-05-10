@@ -1,0 +1,56 @@
+<h2>Example form</h2>
+
+<p>JS form</p>
+
+<input type="checkbox" id="enable-js-form" checked="checked"/>
+<label for="enable-js-form">Enable JS form</label>
+
+{{ form }}
+
+<div id="output-box"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+(function ($) {
+    var formDrupal = $('form.example-ajax-form');
+console.log(formDrupal)
+    function sendDrupalForm(){
+        $("#output-box").html("sending form by ajax");
+
+        $.ajax({
+            type: "POST",
+            url: formDrupal.attr('action'),
+            data: formDrupal.serialize(),
+            dataType: "json",
+            success: function(dataJson) {
+                $("#output-box").html('<pre>' + JSON.stringify(dataJson, null, 2) + '</pre>');
+            },
+            error: function() {
+                $("#output-box").html('error handling here');
+            }
+        });
+    }
+
+    function bindJsForm(checkElement){
+        if(checkElement.checked){
+            formDrupal.on('submit', function(e) {
+                e.preventDefault();
+                sendDrupalForm();
+            });
+        }else{
+            formDrupal.off('submit');
+        }
+    }
+
+    var checkJs = $("#enable-js-form");
+
+    checkJs.each(function(){
+        bindJsForm(this);
+    })
+
+    checkJs.on('change', function(){
+        bindJsForm(this);
+    });
+
+})(jQuery);
+</script>
