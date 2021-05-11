@@ -1,5 +1,6 @@
 language: php
 php: 7.4
+sudo: true
 services:
   - mysql
 branches:
@@ -12,7 +13,7 @@ before_install:
 before_script:
   - composer install
   - cp web/sites/travis.settings.php web/sites/default/settings.php
-  - sudo "127.0.0.1 drupal.localhost" > /etc/hosts
+  - echo "127.0.0.1 drupal.localhost" > /etc/hosts
 #  - php web/core/scripts/drupal quick-start standard --site-name Drupal9PHPUnitTests --host drupal.localhost --port 80
   - vendor/bin/drush qd -y
   - php -S drupal.localhost:80
