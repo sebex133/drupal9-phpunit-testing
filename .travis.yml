@@ -2,7 +2,6 @@ language: php
 php: 7.4
 services:
   - mysql
-mysqL: 5.7
 branches:
   - only:
       - master
@@ -11,6 +10,8 @@ addons:
     - drupal.localhost
 
 before_install:
+  - mysql --version
+  -
   - mysql -e 'CREATE DATABASE IF NOT EXISTS drupal_unit_tests;'
 
 before_script:
