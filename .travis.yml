@@ -16,6 +16,7 @@ before_script:
 #  - cp web/sites/travis.settings.php web/sites/default/settings.php
 #  - php web/core/scripts/drupal quick-start standard --site-name Drupal9PHPUnitTests --host drupal.localhost --port 80
   - vendor/bin/drush qd --server=drupal.localhost:80 -y &
+  - sleep 7
 #  - cd web
 #  - php -S drupal.localhost:80
 
