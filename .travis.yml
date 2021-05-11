@@ -1,3 +1,4 @@
+dist: xenial
 language: php
 php: 7.4
 branches:
@@ -10,10 +11,6 @@ addons:
 before_install:
 #  - mysql --version
 #  - mysql -e 'CREATE DATABASE IF NOT EXISTS drupal_unit_tests;'
-  - sudo apt-get autoremove sqlite3
-  - sudo apt-get -y update
-  - sudo apt-get install sqlite3=3.26
-  - sudo sqlite3 -version
 
 before_script:
   - composer install
