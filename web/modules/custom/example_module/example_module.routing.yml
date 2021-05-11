@@ -1,0 +1,13 @@
+simple.json:
+  path: '/api/simple-json'
+  defaults:
+    _controller: '\Drupal\example_module\Controller\SimpleController::pageSimpleJson'
+  requirements:
+    _permission: 'access content'
+
+simple.content:
+  path: '/page/simple-content'
+  defaults:
+    _controller: '\Drupal\example_module\Controller\SimpleController::pageSimpleContent'
+  requirements:
+    _permission: 'access content'

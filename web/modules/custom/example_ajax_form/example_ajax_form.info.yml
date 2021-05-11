@@ -1,6 +1,0 @@
-name: Example Ajax Form
-type: module
-description: Example module for Ajax Forms
-core: 8.x
-core_version_requirement: ^8 || ^9
-package: Emakina Drupal Modules
