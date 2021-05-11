@@ -13,7 +13,9 @@ before_install:
 before_script:
   - composer install
   - cp web/sites/travis.settings.php web/sites/default/settings.php
+  - sudo su
   - echo "127.0.0.1 drupal.localhost" > /etc/hosts
+  - exit
 #  - php web/core/scripts/drupal quick-start standard --site-name Drupal9PHPUnitTests --host drupal.localhost --port 80
   - vendor/bin/drush qd -y
   - php -S drupal.localhost:80
