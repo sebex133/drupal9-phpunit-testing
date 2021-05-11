@@ -1,14 +1,22 @@
 language: php
 php: 7.4
+services:
+  - mysql
 branches:
   - only:
       - master
 
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS drupal_unit_tests;'
+
 before_script:
   - composer install
+  - cp web/sites/default/travis.settings.php web/sites/default/settings.php
+  - php web/core/scripts/drupal quick-start standard --site-name Drupal9PHPUnitTests --host drupal.localhost --port 80
 
 script:
   - echo "START of Travis CI testing custom modules"
+  - curl http://drupal.localhost
   - cp web/phpunit.xml web/core/phpunit.xml
   - cd web/core
   - ../../vendor/bin/phpunit ../modules/custom
