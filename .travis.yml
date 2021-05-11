@@ -11,8 +11,11 @@ before_install:
 
 before_script:
   - composer install
-  - cp web/sites/default/travis.settings.php web/sites/default/settings.php
-  - php web/core/scripts/drupal quick-start standard --site-name Drupal9PHPUnitTests --host drupal.localhost --port 80
+  - cp web/sites/travis.settings.php web/sites/default/settings.php
+  - sudo "127.0.0.1 drupal.localhost" > /etc/hosts
+#  - php web/core/scripts/drupal quick-start standard --site-name Drupal9PHPUnitTests --host drupal.localhost --port 80
+  - vendor/bin/drush qd -y
+  - php -S drupal.localhost:80
 
 script:
   - echo "START of Travis CI testing custom modules"
