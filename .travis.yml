@@ -2,6 +2,7 @@ language: php
 php: 7.4
 services:
   - mysql
+mysqL: 5.7
 branches:
   - only:
       - master
