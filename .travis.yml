@@ -15,14 +15,14 @@ before_script:
   - composer install
 #  - cp web/sites/travis.settings.php web/sites/default/settings.php
 #  - php web/core/scripts/drupal quick-start standard --site-name Drupal9PHPUnitTests --host drupal.localhost --port 80
-  - vendor/bin/drush qd --server=drupal.localhost:8080 -y
-  - sleep 7
+  - vendor/bin/drush qd --server=drupal.localhost:8080 -y &
+  - sleep 15
 #  - cd web
 #  - php -S drupal.localhost:80
 
 script:
   - echo "START of Travis CI testing custom modules"
-  - curl http://drupal.localhost
+  - curl http://drupal.localhost:8080
   - cp web/phpunit.xml web/core/phpunit.xml
   - cd web/core
   - ../../vendor/bin/phpunit ../modules/custom
