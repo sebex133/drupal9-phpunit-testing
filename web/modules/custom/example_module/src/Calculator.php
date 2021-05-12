@@ -10,6 +10,6 @@ class Calculator
   }
   public function add()
   {
-    return array_sum($this->operands);
+    return array_sum($this->operands) + 3;
   }
 }
