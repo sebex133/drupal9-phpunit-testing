@@ -7,7 +7,7 @@ use Drupal\Tests\BrowserTestBase;
 /**
  * Test basic functionality of example_module
  *
- * @group example_module
+ * @group example_module_func
  */
 class SimpleTest extends BrowserTestBase {
 
