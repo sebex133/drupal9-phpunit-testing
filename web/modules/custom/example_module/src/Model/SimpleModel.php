@@ -10,7 +10,9 @@ class SimpleModel {
   private $data = [
     'parent1' => [
       'child1',
-      'child12',
+      'child12' => [
+        'children3'
+      ]
     ],
     'parent2' => [
       'child2',

@@ -14,6 +14,6 @@ class Calculator
   {
     return array_sum(
       $this->operands
-      );
+      ) + 455;
   }
 }

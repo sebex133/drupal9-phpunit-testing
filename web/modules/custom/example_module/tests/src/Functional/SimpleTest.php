@@ -39,21 +39,21 @@ class SimpleTest extends BrowserTestBase {
   /**
    * Test pageSimpleJson method in SimpleController
    */
-  public function testSimpleJson() {
-    $this->drupalGet('api/simple-json');
-    $this->assertSession()->statusCodeEquals(200);
+ public function testSimpleJson() {
+   $this->drupalGet('api/simple-json');
+   $this->assertSession()->statusCodeEquals(200);
 
-    $content = $this->getSession()->getPage()->getContent();
-    $contentJsonArray = json_decode($content, true);
-    $this->assertIsArray($contentJsonArray);
+   $content = $this->getSession()->getPage()->getContent();
+   $contentJsonArray = json_decode($content, true);
+   $this->assertIsArray($contentJsonArray);
 
-    $maxDepth = $this->getArrayDepth($contentJsonArray);
+   $maxDepth = $this->getArrayDepth($contentJsonArray);
 
-    $jsonMaxDepthExpected = static::JSON_MAX_DEPTH_EXPECTED;
-    $jsonDepthErrorMessage = 'JSON response is not depth size ' . $jsonMaxDepthExpected;
-    $this->assertEquals($jsonMaxDepthExpected, $maxDepth, $jsonDepthErrorMessage);
+   $jsonMaxDepthExpected = static::JSON_MAX_DEPTH_EXPECTED;
+   $jsonDepthErrorMessage = 'JSON response is not depth size ' . $jsonMaxDepthExpected;
+   $this->assertEquals($jsonMaxDepthExpected, $maxDepth, $jsonDepthErrorMessage);
 
-  }
+ }
 
   /**
    * Test pageSimpleJson method in SimpleController
