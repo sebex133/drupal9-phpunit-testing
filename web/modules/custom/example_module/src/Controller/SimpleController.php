@@ -3,7 +3,8 @@
 namespace Drupal\example_module\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Drupal\example_module\Model\SimpleModel;
+use Drupal\example_module\View\SimpleView;
 
 /**
  * An simple controller.
@@ -14,17 +15,9 @@ class SimpleController extends ControllerBase {
    * Returns a JSON response array
    */
   public function apiSimpleJson() {
-    //2 level depth array for unit test
-    return new JsonResponse([
-      'parent1' => [
-        'child1',
-        'child12',
-      ],
-      'parent2' => [
-        'child2',
-        'child22',
-      ],
-    ]);
+    $model = new SimpleModel;
+    $simpleView = new SimpleView();
+    return $simpleView->view($model->getData());
   }
 
   /**

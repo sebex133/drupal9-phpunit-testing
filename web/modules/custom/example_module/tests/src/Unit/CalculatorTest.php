@@ -1,5 +1,7 @@
 <?php
 
+namespace Drupal\Tests\contact\Unit;
+
 use PHPUnit\Framework\TestCase;
 use Drupal\example_module\Calculator;
 
@@ -17,7 +19,12 @@ class CalculatorTest extends TestCase
   }
 
   public function testAdd(){
-    $this->calculator->setOperands([5,28]);
-    $this->assertEquals(33, $this->calculator->add());
+    $this->calculator->setOperands(
+      [5,28]
+    );
+    $this->assertEquals(
+      33,
+      $this->calculator->add()
+    );
   }
 }
